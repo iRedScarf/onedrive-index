@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+.react-pdf__Page__canvas {
+  @apply mx-auto border border-gray-300/40 shadow;
+}
+
+.markdown-body ul {
+  @apply list-disc;
+}
+.markdown-body ol {
+  @apply list-decimal;
+}
+pre[class*='language-'],
+code[class*='language-'] {
+  @apply font-mono !important;
+}
