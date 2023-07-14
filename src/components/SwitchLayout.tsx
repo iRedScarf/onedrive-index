@@ -1,5 +1,6 @@
 import { Fragment } from 'react'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
+import { faList, faGrip } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Listbox, Transition } from '@headlessui/react'
 import { useTranslation } from 'next-i18next'
@@ -7,8 +8,8 @@ import { useTranslation } from 'next-i18next'
 import useLocalStorage from '../utils/useLocalStorage'
 
 export const layouts: Array<{ id: number; name: 'Grid' | 'List'; icon: IconProp }> = [
-  { id: 1, name: 'List', icon: 'th-list' },
-  { id: 2, name: 'Grid', icon: 'th' },
+  { id: 1, name: 'List', icon: faList },
+  { id: 2, name: 'Grid', icon: faGrip },
 ]
 
 const SwitchLayout = () => {

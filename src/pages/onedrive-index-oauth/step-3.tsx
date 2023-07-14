@@ -170,7 +170,7 @@ export default function OAuthStep3({ userPrincipalName, accessToken, expiryTime,
               />
             </div>
             <h3 className="mb-4 text-center text-xl font-medium">
-              {t('Welcome to your new onedrive-index 🎉')}
+              {t('Welcome to your new OneDrive-Index 🎉')}
             </h3>
 
             <h3 className="mt-4 mb-2 text-lg font-medium">{t('Step 3/3: Get access and refresh tokens')}</h3>
@@ -258,7 +258,7 @@ export default function OAuthStep3({ userPrincipalName, accessToken, expiryTime,
                     }
                   ) +
                     t(
-                      "Don't worry, after storing them, onedrive-index will take care of token refreshes and updates after your site goes live."
+                      "Don't worry, after storing them, OneDrive-Index will take care of token refreshes and updates after your site goes live."
                     )}
                 </p>
 
