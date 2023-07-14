@@ -1,4 +1,4 @@
-# OneDrive-Vercel-Index（一键部署版）
+# OneDrive-Index（一键部署版）
 
 [English](./README.md) | 简体中文
 

@@ -71,7 +71,7 @@ export default function OAuthStep2() {
               />
             </div>
             <h3 className="mb-4 text-center text-xl font-medium">
-              {t('Welcome to your new onedrive-vercel-index 🎉')}
+              {t('Welcome to your new onedrive-index 🎉')}
             </h3>
 
             <h3 className="mt-4 mb-2 text-lg font-medium">{t('Step 2/3: Get authorisation code')}</h3>
@@ -147,7 +147,7 @@ export default function OAuthStep2() {
                 disabled={authCode === ''}
                 onClick={() => {
                   setButtonLoading(true)
-                  router.push({ pathname: '/onedrive-vercel-index-oauth/step-3', query: { authCode } })
+                  router.push({ pathname: '/onedrive-index-oauth/step-3', query: { authCode } })
                 }}
               >
                 {buttonLoading ? (

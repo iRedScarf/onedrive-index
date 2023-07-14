@@ -44,9 +44,9 @@ module.exports = {
 
   // [OPTIONAL] We use Google Fonts natively for font customisations.
   // You can check and generate the required links and names at https://fonts.google.com.
-  // googleFontSans - the sans serif font used in onedrive-vercel-index.
+  // googleFontSans - the sans serif font used in onedrive-index.
   googleFontSans: 'Inter',
-  // googleFontMono - the monospace font used in onedrive-vercel-index.
+  // googleFontMono - the monospace font used in onedrive-index.
   googleFontMono: 'Fira Mono',
   // googleFontLinks -  an array of links for referencing the google font assets.
   googleFontLinks: ['https://fonts.googleapis.com/css2?family=Fira+Mono&family=Inter:wght@400;500;700&display=swap'],
