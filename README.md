@@ -1,4 +1,4 @@
-# OneDrive-Index (One-Click Deploy Version)
+# OneDrive-Index (One-Click Deploy with Vercel)
 
 English | [中文简体](./README.zh-CN.md)
 
