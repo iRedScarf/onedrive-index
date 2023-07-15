@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { IconName } from '@fortawesome/fontawesome-svg-core'
+import { IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core'
 import { Dialog, Transition } from '@headlessui/react'
 import toast, { Toaster } from 'react-hot-toast'
 import { useHotkeys } from 'react-hotkeys-hook'
@@ -57,6 +57,25 @@ const Navbar = () => {
     }, 1000)
   }
 
+  const icon = siteConfig.icon;
+  let IconComponent;
+  let iconProps = {};
+
+  if (icon.startsWith('/')) {
+    // If the icon is a URL, use the Image component
+    IconComponent = Image;
+    iconProps = { src: icon, alt: 'icon', width: '25', height: '25', priority: true };
+  } else {
+    // If the icon is a FontAwesome icon name, use the FontAwesomeIcon component
+    if (!icon.includes('-')) {
+      throw new Error('To use FontAwesomIcon as logo must include IconPrefix and IconName, separated by a dash `-`.');
+    }
+    IconComponent = FontAwesomeIcon;
+    const iconPrefix = icon.substring(0, icon.indexOf('-')).toLowerCase() as IconPrefix;
+    const iconName = icon.substring(icon.indexOf('-') + 1).toLowerCase() as IconName;
+    iconProps = { icon: [iconPrefix, iconName] };
+  }
+
   return (
     <div className="sticky top-0 z-[100] border-b border-gray-900/10 bg-white bg-opacity-80 backdrop-blur-md dark:border-gray-500/30 dark:bg-gray-900">
       <Toaster />
@@ -65,7 +84,8 @@ const Navbar = () => {
 
       <div className="mx-auto flex w-full items-center justify-between space-x-4 px-4 py-1">
         <Link href="/" passHref className="flex items-center space-x-2 py-2 hover:opacity-80 dark:text-white md:p-2">
-          <Image src={siteConfig.icon} alt="icon" width="25" height="25" priority />
+          {/*<Image src={siteConfig.icon} alt="icon" width="25" height="25" priority />*/}
+          <IconComponent {...iconProps} />
           <span className="hidden font-bold sm:block">{siteConfig.title}</span>
         </Link>
 
