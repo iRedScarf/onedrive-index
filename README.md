@@ -10,8 +10,6 @@ This project is a fork from [spencerwooo/onedrive-vercel-index](https://github.c
 
 - In this version, some variables that needed to be set in the `api.config.js` and `site.config.js` configuration files in the `config/` are now set in the environment variables of Vercel. In this way, there is no need to - first fork the original repository - then manually modify the configuration file - and then deploy. Instead, you can directly click the one-click deployment button in this document, enter the values of the environment variables during the deployment process, and then complete the deployment.
 
-> In this version, some sensitive variables are set using environment variables with prefixes other than `NEXT_PUBLIC_`. This is done to prevent casual website visitors from easily obtaining your OneDrive account, ClientID, and ClientSecret information.
-
 - Additionally, this version is set to automatically close the OAuth authentication channel after OAuth authentication is completed. This is to prevent malicious individuals from easily obtaining user configuration information through the OAuth authentication URL link.
 
 ## Demo
