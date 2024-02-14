@@ -10,6 +10,7 @@ import { getBaseUrl } from '../utils/getBaseUrl'
 import { formatModifiedDateTime } from '../utils/fileDetails'
 import { Checkbox, ChildIcon, ChildName, Downloading } from './FileListing'
 import { getStoredToken } from '../utils/protectedRouteHandler'
+import isHiddenFolder from '../utils/isHiddenFolder'
 
 const GridItem = ({ c, path }: { c: OdFolderChildren; path: string }) => {
   // We use the generated medium thumbnail for rendering preview images (excluding folders)
@@ -75,6 +76,7 @@ const FolderGridLayout = ({
 
   // Get item path from item name
   const getItemPath = (name: string) => `${path === '/' ? '' : path}/${encodeURIComponent(name)}`
+  const visibleFolderChildren = folderChildren.filter(c => !isHiddenFolder(c) && !isHiddenFolder(c.folder))
 
   return (
     <div className="rounded bg-white shadow-sm dark:bg-gray-900 dark:text-gray-100">
@@ -114,7 +116,7 @@ const FolderGridLayout = ({
       </div>
 
       <div className="grid grid-cols-2 gap-3 p-3 md:grid-cols-4">
-        {folderChildren.map((c: OdFolderChildren) => (
+        {visibleFolderChildren.map((c: OdFolderChildren) => (
           <div
             key={c.id}
             className="group relative overflow-hidden rounded transition-all duration-100 hover:bg-gray-100 dark:hover:bg-gray-850"
