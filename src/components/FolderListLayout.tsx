@@ -11,6 +11,7 @@ import { humanFileSize, formatModifiedDateTime } from '../utils/fileDetails'
 
 import { Downloading, Checkbox, ChildIcon, ChildName } from './FileListing'
 import { getStoredToken } from '../utils/protectedRouteHandler'
+import isHiddenFolder from '../utils/isHiddenFolder'
 
 const FileListItem: FC<{ fileContent: OdFolderChildren }> = ({ fileContent: c }) => {
   return (
@@ -52,6 +53,7 @@ const FolderListLayout = ({
 
   // Get item path from item name
   const getItemPath = (name: string) => `${path === '/' ? '' : path}/${encodeURIComponent(name)}`
+  const visibleFolderChildren = folderChildren.filter((c: OdFolderChildren) => !isHiddenFolder(c))
 
   return (
     <div className="rounded bg-white shadow-sm dark:bg-gray-900 dark:text-gray-100">
@@ -103,7 +105,7 @@ const FolderListLayout = ({
         </div>
       </div>
 
-      {folderChildren.map((c: OdFolderChildren) => (
+      {visibleFolderChildren.map((c: OdFolderChildren) => (
         <div
           className="grid grid-cols-12 transition-all duration-100 hover:bg-gray-100 dark:hover:bg-gray-850"
           key={c.id}
